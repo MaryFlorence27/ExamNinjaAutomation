@@ -46,7 +46,7 @@ public class PasswordUpdateTest {
 
         // Case 3: Internal server error
         stubFor(put(urlEqualTo("/update-password"))
-                .withRequestBody(equalToJson("{\"email\":\"user@example.com\",\"password\":\"newPassword123\"}", true, true))
+                .withRequestBody(equalToJson("{\"email\":\"user1@example.com\",\"password\":\"newPassword1234\"}", true, true))
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "application/json")
                         .withStatus(500)
@@ -166,7 +166,7 @@ public class PasswordUpdateTest {
     @Test
     public void testUpdatePasswordInternalServerError() {
         // Define request payload
-        String requestPayload = "{ \"email\": \"user@example.com\", \"password\": \"newPassword123\" }";
+        String requestPayload = "{ \"email\": \"user1@example.com\", \"password\": \"newPassword1234\" }";
 
         // Send PUT request to update the password
         Response response = RestAssured.given()
